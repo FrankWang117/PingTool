@@ -1,0 +1,22 @@
+body {
+  margin: 40px 0;
+    width: 15rem;
+    height: 100px;
+  }
+  
+  section {
+    height: 100%;
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+  }
+  
+  p.title {
+    text-align: center;
+    font-size: 24px;
+    margin: 4px 0;
+  }
+  p a {
+    color: #6698ff;
+    text-decoration: none;
+  }

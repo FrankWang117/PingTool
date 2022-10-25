@@ -1,0 +1,18 @@
+.plugin-notice-container {
+    margin: 0 auto !important;
+    width: 100% !important; 
+    height: 60px !important;
+}
+
+.plugin-notice-container .plugin-notice-bell {
+    margin: 0 !important;
+    width: 100%; 
+    height: 100%; 
+    justify-content: center;
+    color: #ddd;
+}
+
+.plugin-notice-container .thy-badge {
+    top: 16px;
+    right: 16px;
+}

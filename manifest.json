@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Worktile bell",
+  "description": "Move worktile notice's bell to the left nav.",
+  "version": "0.0.1",
+  "icons": {
+    "16": "images/bell.png",
+    "32": "images/bell.png",
+    "48": "images/bell.png",
+    "128": "images/bell.png"
+  },
+  "action": {
+    "default_popup": "popup/index.html"
+  },
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "css": ["styles/style.css"],
+      "matches": ["https://*.worktile.com/*", "https://*.worktile.live/*"],
+      "run_at": "document_end"
+    }
+  ]
+}
