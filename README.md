@@ -11,4 +11,4 @@ Move worktile notice's bell to the left nav.
 
 将 Worktile 应用中右侧的通知 icon 移动到左侧 Nav 中:
 
-![ggNOmJ](https://raw.githubusercontent.com/FrankWang117/images/master/2022-10-26/ggNOmJ.jpg?token=AFFPCSDC53VBAGSS5AI2RATDLEOUW)
+![show page]([https://raw.githubusercontent.com/FrankWang117/images/master/2022-10-26/ggNOmJ.jpg?token=AFFPCSDC53VBAGSS5AI2RATDLEOUW](https://atlas-rc.pingcode.com/files/public/63588bbfe2600bc0cf5806ca))
