@@ -1,22 +1,28 @@
 {
   "manifest_version": 3,
-  "name": "Worktile bell",
-  "description": "Move worktile notice's bell to the left nav.",
-  "version": "0.0.1",
+  "name": "Worktile Tool",
+  "description": "Some enhanced features for Worktile & PingCode",
+  "version": "0.0.2",
   "icons": {
-    "16": "images/bell.png",
-    "32": "images/bell.png",
-    "48": "images/bell.png",
-    "128": "images/bell.png"
+    "16": "images/16x16.png",
+    "32": "images/32x32.png",
+    "48": "images/256x256.png",
+    "128": "images/512x512.png"
   },
   "action": {
     "default_popup": "popup/index.html"
   },
+  "permissions": [],
   "content_scripts": [
     {
       "js": ["scripts/content.js"],
       "css": ["styles/style.css"],
-      "matches": ["https://*.worktile.com/*", "https://*.worktile.live/*"],
+      "matches": [
+        "https://*.worktile.com/*",
+        "https://*.worktile.live/*",
+        "https://*.pingcode.com/*",
+        "https://*.pingcode.live/*"
+      ],
       "run_at": "document_end"
     }
   ]

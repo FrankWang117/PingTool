@@ -1,22 +1,110 @@
+/**
+ * variables
+ */
+:root {
+    --base-space: 4px;
+}
+
 body {
-  margin: 40px 0;
+    margin: 20px 0;
     width: 15rem;
-    height: 100px;
-  }
-  
-  section {
+    height: 200px;
+}
+
+section {
     height: 100%;
     display: flex;
-    align-items: center;    
-    justify-content: center;
-  }
-  
-  p.title {
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 32px;
+}
+
+section .functional-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+section .functional-container p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+section .functional-container p .action {
+    cursor: pointer;
+}
+
+.address {
     text-align: center;
-    font-size: 24px;
+    font-size: 14px;
     margin: 4px 0;
-  }
-  p a {
+}
+
+p a {
     color: #6698ff;
     text-decoration: none;
-  }
+}
+
+/**
+ * result styles
+ */
+.result {
+    border: 1px solid #ddd;
+    padding: 4px;
+    animation-duration: 1.2s;
+    animation-name: slidein;
+}
+
+.result-content {
+    justify-content: space-between;
+}
+
+.result-content .result-item {
+    flex-direction: column;
+    height: 40px;
+}
+
+/**
+ * common class
+ */
+p {
+    margin: 0;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.mt-1 {
+    margin-top: var(--base-space);
+}
+
+.mt-2 {
+    margin-top: calc(var(--base-space) * 2);
+}
+
+.f-16 {
+    font-size: 16px;
+}
+
+.f-500 {
+    font-weight: 500;
+}
+
+.primary-color {
+    color: #6698ff;
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 166px;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 166px;
+    }
+}
