@@ -1,6 +1,8 @@
 /**
  * variables
  */
+@import './switch.css';
+
 :root {
     --base-space: 4px;
 }
@@ -53,8 +55,10 @@ p a {
 .result {
     border: 1px solid #ddd;
     padding: 4px;
-    animation-duration: 1.2s;
-    animation-name: slidein;
+    -webkit-animation-duration: 1.2s;
+            animation-duration: 1.2s;
+    -webkit-animation-name: slidein;
+            animation-name: slidein;
 }
 
 .result-content {
@@ -95,6 +99,18 @@ p {
 
 .primary-color {
     color: #6698ff;
+}
+
+@-webkit-keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 166px;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 166px;
+    }
 }
 
 @keyframes slidein {
