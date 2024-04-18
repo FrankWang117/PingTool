@@ -1,44 +1,39 @@
-const countActionEle = document.querySelector(".item-count .action");
+import { quickJump } from "./functional/quick-jump.js";
+import { createCalcResult } from "./functional/calc-story-point.js";
+
+const countActionEle = document.querySelector(".title-list .calc");
+const refreshCalcEle = document.querySelector(".calc-refresh .action .icon");
+// const switchActionEle = document.querySelector(".item-bell .checkbox-wrapper #toggle-read");
+const jumpContainerEle = document.querySelector(".tab-list");
+
+quickJump();
+
 countActionEle.addEventListener("click", () => {
-    sendToContent();
+    createCalcResult();
 });
 
-function sendToContent() {
-    // popup ---> content
-    chrome.tabs.query({ active: true }, (tag) => {
-        chrome.tabs.sendMessage(
-            tag[0].id,
-            { type: "count", message: "let count" },
-            {},
-            (res) => {
-                const resultText = createResultText(res);
-                const countEle = document.querySelector(".item-count");
-                countEle.insertAdjacentHTML("afterend", resultText);
-            }
-        );
-    });
-}
-/**
- * same as html
- */
-function createResultText(
-    count = { feCount: NaN, beCount: NaN, totalCount: NaN }
-) {
-    const htmlText = `<div class="result">
-        <div class="result-content d-flex">
-            <p class="result-item">
-                <span class="title">前端故事点</span><span class="count f-16 f-500 primary-color">${count.feCount}</span>
-            </p>
-            <p class="result-item">
-                <span class="title">后端故事点</span><span class="count f-16 f-500 primary-color">${count.beCount}</span>
-            </p>
-        </div>
-        <p class="total-item mt-2">
-        <span class="title">全部故事点</span><span class="count f-16 f-500 primary-color">${count.totalCount}</span>
-        </p>
-    </div>`;
-    return htmlText;
-}
+refreshCalcEle.addEventListener("click", () => {
+    refreshCalcEle.classList.add("rotate-center");
+    createCalcResult();
+});
+
+// switchActionEle.addEventListener("click", () => {
+//     const checked = switchActionEle.checked;
+// });
+
+jumpContainerEle.addEventListener("click", (e) => {
+    let curTarget = e?.target;
+    while (curTarget?.tagName !== 'LI' && curTarget) {
+        curTarget = curTarget.parentNode;
+    }
+    if (!curTarget) {
+        return;
+    }
+    const tabIndex = parseInt(curTarget.dataset.tabIndex);
+
+    // 跳转 tab
+    chrome.tabs.highlight({ tabs: tabIndex }, () => { });
+});
 
 chrome.runtime.onMessage.addListener((req, sender, sendResponse) => {
     sendResponse("我收到了你的来信");

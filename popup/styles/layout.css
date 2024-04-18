@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+:root {
+  --container-x-padding: calc(var(--base-space) * 4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+::selection {
+  background: #6698ff;
+  color: #fff;
+}
+.container {
+  max-width: 460px;
+  width: 100%;
+  height: 100%;
+}
+.content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.content .title-list {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0 var(--container-x-padding);
+  position: relative;
+}
+.content .title-list label {
+  height: 40px;
+  width: 100px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 40px;
+  cursor: pointer;
+  padding: 0 calc(var(--base-space) * 2);
+  transition: all 0.5s ease;
+  color: #333;
+  z-index: 12;
+}
+.content .title-list label svg {
+  width: 16px;
+  height: 16px;
+  color: #333;
+  transition: all 0.5s ease;
+}
+.content .title-list label svg path {
+  color: #333;
+  transition: all 0.5s ease;
+}
+
+#home:checked ~ .title-list label.home,
+#calc:checked ~ .title-list label.calc,
+#help:checked ~ .title-list label.help {
+  color: #fff;
+}
+
+#home:checked ~ .title-list label.home svg,
+#calc:checked ~ .title-list label.calc svg,
+#help:checked ~ .title-list label.help svg {
+  color: #fff;
+  stroke: #fff;
+}
+
+#home:checked ~ .title-list label.home svg path,
+#calc:checked ~ .title-list label.calc svg path,
+#help:checked ~ .title-list label.help svg path {
+  fill: #fff;
+}
+
+.content .title-list label:hover svg {
+  color: #6698ff;
+  stroke: #6698ff;
+}
+
+.content .title-list label:hover svg path {
+  fill: #6698ff;
+}
+.content .title-list label:hover {
+  color: #6698ff;
+}
+.content .slider {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 40px;
+  width: 100px;
+  border-radius: 12px;
+  background: #6698ff;
+  transition: all 0.4s ease;
+}
+#home:checked ~ .title-list .slider {
+  left: var(--container-x-padding);
+}
+#calc:checked ~ .title-list .slider {
+  left: calc(var(--container-x-padding) + 100px);
+}
+#help:checked ~ .title-list .slider {
+  left: calc(var(--container-x-padding) + 200px);
+}
+
+.content .main-content {
+  width: 100%;
+  padding: 0 16px;
+  margin-top: 8px;
+  height: 100%;
+  overflow: auto;
+}
+.content .text {
+  display: none;
+}
+.content .text .title {
+  font-size: 25px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.content .text p {
+  text-align: justify;
+}
+.content .main-content .home {
+  display: block;
+}
+#home:checked ~ .main-content .home,
+#calc:checked ~ .main-content .calc,
+#help:checked ~ .main-content .help {
+  display: block;
+}
+#calc:checked ~ .main-content .home,
+#help:checked ~ .main-content .home,
+#code:checked ~ .main-content .home,
+#about:checked ~ .main-content .home {
+  display: none;
+}
+.content input {
+  display: none;
+}

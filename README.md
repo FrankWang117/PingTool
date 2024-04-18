@@ -1,6 +1,6 @@
-# Worktile-bell
+# PingCode-Tool
 
-Move worktile notice's bell to the left nav.
+Calculate the story points for the current sprint.
 
 ## 下载使用
 
@@ -9,6 +9,9 @@ Move worktile notice's bell to the left nav.
 
 ## 实现功能
 
-将 Worktile 应用中右侧的通知 icon 移动到左侧 Nav 中:
 
-![show page]([https://raw.githubusercontent.com/FrankWang117/images/master/2022-10-26/ggNOmJ.jpg?token=AFFPCSDC53VBAGSS5AI2RATDLEOUW](https://atlas-rc.pingcode.com/files/public/63588bbfe2600bc0cf5806ca))
+## TODO
+
+- [x] 查看打开的 PingCode tab 列表
+- [x] 自动计算当前迭代故事点
+- [ ] 增加配置项
