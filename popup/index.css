@@ -4,23 +4,30 @@
 @import "./styles/layout.css";
 @import "./styles/list.css";
 @import "./styles/switch.css";
-@import "./styles/rotate.css";
+@import "./styles/animate.css";
 
 :root {
   --base-space: 4px;
   --primary-color: #6698ff;
+  --dark-main-bg-color: #16181c;
+  /** #2a2e53; */
+  --dark-main-color: #65d195;
 }
 
 body {
-  margin: calc(var(--base-space) * 2) 0;
   width: 25rem;
-  height: 320px;
-  min-height: 320px;
+  height: 340px;
+  min-height: 340px;
+  background-color: #f7f8f9;
 }
 
 ul {
   margin: 0;
   padding: 0;
+}
+
+ul li {
+  list-style-type: none;
 }
 
 .address {
@@ -29,9 +36,10 @@ ul {
   margin: 4px 0;
 }
 
-p a {
+a {
   color: var(--primary-color);
   text-decoration: none;
+  background-color: transparent;
 }
 
 /**
@@ -69,38 +77,36 @@ p {
   font-weight: 500;
 }
 
+.bg-white {
+  background-color: #fff;
+}
+
 .primary-color {
   color: var(--primary-color);
 }
 
-@-webkit-keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 166px;
-  }
-
-  to {
-    margin-left: 0%;
-    width: 166px;
-  }
-}
-
-@keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 166px;
-  }
-
-  to {
-    margin-left: 0%;
-    width: 166px;
-  }
-}
-
 .warning {
-  color: #ffcd5d;
+  line-height: 40px;
+  color: #805103;
+  background-color: #faf5db;
+  border: 2px solid #fcd211;
   text-decoration: none;
   font-size: 16px;
+  padding: 0 calc(var(--base-space) * 2);
+  margin: calc(var(--base-space) * 4) 0;
+  border-radius: 4px;
+}
+
+.info {
+  line-height: 40px;
+  color: #004577;
+  background-color: #ebf4fa;
+  border: 2px solid #0777ba;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 0 calc(var(--base-space) * 2);
+  margin: calc(var(--base-space) * 4) 0;
+  border-radius: 4px;
 }
 
 .text-truncate {
