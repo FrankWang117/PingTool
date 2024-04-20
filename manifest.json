@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Worktile Tool",
-  "description": "Some enhanced features for Worktile & PingCode",
-  "version": "0.0.2",
+  "name": "PingTool",
+  "description": "为提高工作效率而生的 Chrome 插件，专为 PingCode 用户使用。",
+  "version": "0.0.3",
   "icons": {
     "16": "images/16x16.png",
     "32": "images/32x32.png",
