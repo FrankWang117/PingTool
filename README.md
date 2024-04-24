@@ -1,11 +1,11 @@
 # PingTool
+![logo](https://lcpublic.s3.cn-north-1.amazonaws.com.cn/4108a006-81a4-4a12-90b8-dc235387c5ae)  
 
 为提高工作效率而生的 Chrome 插件，专为 [PingCode 智能化研发管理工具](https://pingcode.com/)用户使用。
 
 ## 下载使用
 
-[插件文件地址](https://github.com/FrankWang117/worktile-bell/releases/latest)  
-下载 `zip` 安装包拖拽到 Chrome 或 Edge 中即可.
+即将上线插件应用商店。
 
 ## 实现功能
 
