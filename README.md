@@ -1,11 +1,12 @@
 # PingTool
-![logo](https://lcpublic.s3.cn-north-1.amazonaws.com.cn/4108a006-81a4-4a12-90b8-dc235387c5ae)  
+![logo](https://lcpublic.s3.cn-north-1.amazonaws.com.cn/4e84db22-10c8-48ab-9c15-97b63b8644d0)  
 
 为提高工作效率而生的 Chrome 插件，专为 [PingCode 智能化研发管理工具](https://pingcode.com/)用户使用。
 
 ## 下载使用
 
-即将上线插件应用商店。
+Chrome 商店地址：[点击跳转](https://chromewebstore.google.com/detail/pingtool/cmbjniepoacfbnehfemiinknhjdakcno)  
+Edge 商店地址：[点击跳转](https://microsoftedge.microsoft.com/addons/detail/pingtool/honjkgcpdkngeannpfimajghjfjgmlog?hl=zh-CN)  
 
 ## 实现功能
 
