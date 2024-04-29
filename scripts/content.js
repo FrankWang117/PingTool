@@ -30,7 +30,8 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     const appName = document.querySelector(".title-name-text");
     const tableHeaderEl = document.querySelector(".styx-table-header table thead");
     const children = Array.from(tableHeaderEl.children);
-    let feIndex, beIndex, totalIndex, feCount = 0, beCount = 0, totalCount = 0;
+    let feIndex, beIndex, totalIndex, feCount = 0, beCount = 0, totalCount = 0, completedFeCount = 0,
+        completedBeCount = 0, completedTotalCount = 0, remainingFeCount = 0, remainingBeCount = 0, remainingTotalCount = 0;
     for (let index = 0; index < children.length; index++) {
         const element = children[index];
         if (element.textContent === '前端故事点') {
@@ -46,6 +47,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     const trList = document.querySelectorAll(".styx-table-body tbody tr")
     const trListArr = Array.from(trList);
     trListArr.forEach(tr => {
+        const isCompleted = tr.classList.contains('styx-item-status-completed');
         const tdArr = Array.from(tr.children);
         const curFeNumber = Number(tdArr[feIndex].textContent);
         const curBeNumber = Number(tdArr[beIndex].textContent);
@@ -53,8 +55,24 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         feCount += (isNaN(curFeNumber) ? 0 : curFeNumber);
         beCount += (isNaN(curBeNumber) ? 0 : curBeNumber);
         totalCount += (isNaN(curTotalNumber) ? 0 : curTotalNumber);
+        if (isCompleted) {
+            completedFeCount += isNaN(curFeNumber) ? 0 : curFeNumber;
+            completedBeCount += isNaN(curBeNumber) ? 0 : curBeNumber;
+            completedTotalCount += isNaN(curTotalNumber) ? 0 : curTotalNumber;
+        } else {
+            remainingFeCount += isNaN(curFeNumber) ? 0 : curFeNumber;
+            remainingBeCount += isNaN(curBeNumber) ? 0 : curBeNumber;
+            remainingTotalCount += isNaN(curTotalNumber) ? 0 : curTotalNumber;
+        }
     })
-    sendResponse({ feCount, beCount, totalCount, appName, feIndex, beIndex });
+    sendResponse({
+        feCount, beCount, totalCount, appName, feIndex, beIndex, completedData: {
+            completedFeCount, completedBeCount, completedTotalCount
+        },
+        remainingData: {
+            remainingFeCount, remainingBeCount, remainingTotalCount
+        }
+    });
 });
 
 

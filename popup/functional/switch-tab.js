@@ -11,7 +11,9 @@ export function switchTab() {
     tabContentElements[0].style.display = "block";
 
     tab.addEventListener("click", (e) => {
-        if (e.target.nodeName === "BUTTON") {
+        const originActiveTarget = document.querySelector(".tab button.active");
+        
+        if (e.target.nodeName === "BUTTON" && e.target !== originActiveTarget) {
             // Remove active class from all tabs
             Array.from(tabLinks).forEach((tab) => tab.classList.remove("active"));
 

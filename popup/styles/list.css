@@ -1,12 +1,9 @@
 .calc-refresh {
   align-items: center;
-  justify-content: end;
 }
 
 .calc-refresh .action {
   cursor: pointer;
-  display: flex;
-  align-items: center;
 }
 
 .calc-refresh svg {
@@ -16,8 +13,25 @@
 
 .calc-refresh .calc-text {
   padding-left: var(--base-space);
+  margin-right: var(--base-space);
   font-size: 14px;
   color: #999;
+}
+
+.calc-refresh .action-area {
+  flex: 2;
+  align-items: center;
+}
+.calc-refresh .tip-area {
+  flex: 3;
+  font-size: 12px;
+  color: #718096;
+  margin-right: calc(var(--base-space)*4);
+
+}
+.calc-refresh .tip-area span {
+  flex: 1;
+  text-align: right;
 }
 
 .tab-item {
@@ -49,25 +63,26 @@
 }
 
 .tab-item .tab-icon {
-  width: 24px;
-  margin-right: calc(var(--base-space) * 4);
+  flex: 2;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 }
+
 
 .tab-item .tab-icon img {
   width: 24px;
   height: 24px;
   border-radius: 50%;
+  margin-right: calc(var(--base-space) * 4);
 }
 
 .tab-item .tab-info {
   width: 0;
-  flex: 1;
+  flex: 3;
 }
 
-.tab-item .tab-info .tab-title {
+.tab-item .tab-title {
   color: #2d3748;
   font-size: 16px;
 }
@@ -86,4 +101,20 @@
 .tab-item .tab-info.tab-calc-info .tab-desc {
   margin-left: calc(var(--base-space) * 4);
   font-size: 16px;
+}
+
+.tab-item.calc-item {
+  height: 60px;
+}
+.calc-item .tab-desc {
+  flex: 1;
+  text-align: right;
+}
+.calc-item .tab-desc:nth-child(2) {
+  color: #aaa;
+  color: #73d897;
+}
+
+.calc-item .tab-desc:last-child {
+  color: #ffcd5d;
 }

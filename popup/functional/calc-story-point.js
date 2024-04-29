@@ -56,7 +56,7 @@ function updateResultContainer(element) {
   }
 }
 
-function createErrorEle(errorMessage = `未知错误: 请刷新后重试，或联系开发人员。`) {
+function createErrorEle(errorMessage = `未知错误: 请刷新后重试或联系开发人员。`) {
   const newEle = document.createElement("p");
   newEle.innerHTML = errorMessage;
   newEle.classList.add("warning");
@@ -70,15 +70,21 @@ function createResultEle(
     {
       name: '前端故事点',
       count: count.feCount,
-      icon: '../../images/frontend.svg'
+      icon: '../../images/frontend.svg',
+      completedCount: count.completedData.completedFeCount,
+      remainingCount: count.remainingData.remainingFeCount
     }, {
       name: '后端故事点',
       count: count.beCount,
-      icon: '../../images/backend.svg'
+      icon: '../../images/backend.svg',
+      completedCount: count.completedData.completedBeCount,
+      remainingCount: count.remainingData.remainingBeCount
     }, {
       name: '总故事点',
       count: count.totalCount,
-      icon: '../../images/total.svg'
+      icon: '../../images/total-number.svg',
+      completedCount: count.completedData.completedTotalCount,
+      remainingCount: count.remainingData.remainingTotalCount
     },
   ];
 
@@ -86,14 +92,16 @@ function createResultEle(
   resultContainerEle.classList.add("bg-white");
   infos.forEach(info => {
     const item = document.createElement('li');
-    item.classList.add('tab-item');
+    item.classList.add(...['tab-item','calc-item']);
 
     const content = `<div class="tab-icon">
                  <img src="${info.icon}" alt=${info.name}>
+                 <p class="tab-title text-truncate">${info.name}</p>
                </div>
                <div class="tab-info d-flex tab-calc-info">
-                 <p class="tab-title text-truncate">${info.name}</p>
                  <p class="tab-desc text-truncate">${info.count}</p>
+                 <p class="tab-desc text-truncate">${info.completedCount}</p>
+                 <p class="tab-desc text-truncate">${info.remainingCount}</p>
                </div>`;
     item.innerHTML = content;
     resultContainerEle.appendChild(item);
