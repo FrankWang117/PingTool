@@ -1,29 +1,4 @@
-const body = document.querySelector("body");
-let noticeElement;// Element;
-let navContainer;// Element; 
-let observer = new MutationObserver(callback);
-
-function callback(mutationRecords) {
-    const record = mutationRecords[0]?.target;
-    noticeElement = record?.querySelector(".app-root-header-actions .notice-badge");
-    navContainer = record?.querySelector(".nav-body");
-
-    if (record && noticeElement && navContainer) {
-        observer.disconnect();
-        updateNoticeStyles(noticeElement);
-        resetPosition(navContainer, noticeElement);
-    }
-};
-
-
-if (body) {
-    const options = {
-        'childList': true,
-        'attributes': true
-    };
-
-    observer.observe(body, options);
-}
+// adjustBellPosition();
 
 // connect to popup
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
@@ -94,4 +69,35 @@ function setNoticeBellStyles(element) {
 function resetPosition(parentNode, targetNode) {
     const firstItem = parentNode.firstChild;
     parentNode.insertBefore(targetNode, firstItem);
+}
+
+/**
+ * 调整 worktile 页面通知铃铛的位置
+ */
+function adjustBellPosition() {
+    const body = document.querySelector("body");
+    let noticeElement;// Element;
+    let navContainer;// Element; 
+    let observer = new MutationObserver(callback);
+
+    function callback(mutationRecords) {
+        const record = mutationRecords[0]?.target;
+        noticeElement = record?.querySelector(".app-root-header-actions .notice-badge");
+        navContainer = record?.querySelector(".nav-body");
+
+        if (record && noticeElement && navContainer) {
+            observer.disconnect();
+            updateNoticeStyles(noticeElement);
+            resetPosition(navContainer, noticeElement);
+        }
+    };
+
+    if (body) {
+        const options = {
+            'childList': true,
+            'attributes': true
+        };
+
+        observer.observe(body, options);
+    }
 }
